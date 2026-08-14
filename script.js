@@ -9,7 +9,7 @@ function add(id) {
     alert('به سبد اضافه شد!'); 
 }
 function checkout() { 
-    alert('در حال انتقال به واتس‌اپ...'); 
+    alert('سلام میخوام این موارد رو سفارش بدم'); 
 }
 // نمایش محصولات
 const grid = document.getElementById('products');
