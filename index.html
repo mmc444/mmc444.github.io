@@ -3,25 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پرتغال شاپ | فروشگاه هنری</title> <!-- اسم جدید -->
+    <title>پرتغال شاپ | فروشگاه هنری و خاص</title>
+    
+    <!-- فونت و آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>پرتغال شاپ 🍊</h1> <!-- اسم جدید و اضافه کردن ایموجی مرتبط -->
-        <p>جایی که هنر با خلاقیت ملاقات می‌کند</p>
+
+    <!-- نوار ناوبری (Navbar) -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🍊</span> پرتغال <span class="highlight">شاپ</span>
+        </div>
+        <div class="nav-icons">
+            <a href="login.html" class="nav-link"><i class="fa-regular fa-user"></i> ورود</a>
+            <div class="cart-icon-container" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count" class="badge">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- بخش هدر (Hero Section) -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>هنر، در دستان شماست</h1>
+            <p>مجموعه‌ای از آثار دست‌ساز و پیکسلی با اصالت و خلاقیت</p>
+            <a href="#products" class="btn-primary">مشاهده محصولات</a>
+        </div>
     </header>
 
-    <main>
-        <section class="product-grid" id="products"></section>
-
-        <section class="cart-container">
-            <h3>🛒 سبد خرید شما</h3>
-            <ul id="cart-items"></ul>
-            <div id="cart-total">جمع کل: 0 تومان</div>
-            <button class="checkout-btn" onclick="checkout()">نهایی کردن سفارش در واتس‌اپ</button>
-        </section>
+    <!-- بخش محصولات (Product Grid) -->
+    <main class="container" id="products">
+        <h2 class="section-title">محصولات برگزیده</h2>
+        <div class="product-grid" id="product-list">
+            <!-- محصولات توسط JavaScript اینجا ساخته می‌شوند -->
+            <!-- در حالت لودینگ یک پیام نمایش داده می‌شود -->
+            <p class="loading">در حال بارگذاری آثار...</p>
+        </div>
     </main>
+
+    <!-- پنل سبد خرید (Side Cart Drawer) -->
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> سبد خرید شما</h3>
+            <button class="close-btn" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-items">
+            <!-- آیتم‌های سبد خرید -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>جمع کل:</span>
+                <span id="total-amount">0 تومان</span>
+            </div>
+            <button class="btn-checkout" onclick="checkoutWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> نهایی کردن سفارش
+            </button>
+        </div>
+    </div>
+
+    <!-- لایه تیره پشت سبد خرید -->
+    <div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+    <!-- فوتر -->
+    <footer>
+        <p>© ۲۰۲۶ پرتغال شاپ | طراحی شده برای استاد مهدی</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
