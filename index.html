@@ -3,76 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پرتغال شاپ | فروشگاه هنری و خاص</title>
+    <title>پرتغال شاپ | Portugal Shop</title>
     
-    <!-- فونت و آیکون‌ها -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Vazir/Sans-Serif fallback) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to our custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
-    <!-- نوار ناوبری (Navbar) -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">
-            <span class="logo-icon">🍊</span> پرتغال <span class="highlight">شاپ</span>
-        </div>
-        <div class="nav-icons">
-            <a href="login.html" class="nav-link"><i class="fa-regular fa-user"></i> ورود</a>
-            <div class="cart-icon-container" onclick="toggleCart()">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="cart-count" class="badge">0</span>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-orange"></i> <span>پرتغال شاپ</span>
+            </div>
+            <div class="nav-actions">
+                <button id="login-btn" class="btn-secondary">
+                    <i class="fas fa-user"></i> ورود / ثبت‌نام
+                </button>
+                <button id="cart-btn" class="btn-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="badge">0</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- بخش هدر (Hero Section) -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <h1>هنر، در دستان شماست</h1>
-            <p>مجموعه‌ای از آثار دست‌ساز و پیکسلی با اصالت و خلاقیت</p>
-            <a href="#products" class="btn-primary">مشاهده محصولات</a>
+            <h1>به دنیای محصولات خاص خوش آمدید</h1>
+            <p>بهترین کیفیت، بهترین قیمت در پرتغال شاپ</p>
+            <a href="#product-list" class="btn-primary">شروع خرید</a>
         </div>
     </header>
 
-    <!-- بخش محصولات (Product Grid) -->
-    <main class="container" id="products">
-        <h2 class="section-title">محصولات برگزیده</h2>
-        <div class="product-grid" id="product-list">
-            <!-- محصولات توسط JavaScript اینجا ساخته می‌شوند -->
-            <!-- در حالت لودینگ یک پیام نمایش داده می‌شود -->
-            <p class="loading">در حال بارگذاری آثار...</p>
-        </div>
+    <!-- Main Content -->
+    <main class="container">
+        <section id="product-list-section">
+            <h2 class="section-title">محصولات ما</h2>
+            <div id="product-list" class="product-grid">
+                <!-- Products will be injected here by JavaScript -->
+                <div class="loading-spinner">در حال بارگذاری...</div>
+            </div>
+        </section>
     </main>
 
-    <!-- پنل سبد خرید (Side Cart Drawer) -->
+    <!-- Cart Drawer (Slides from right) -->
+    <div id="cart-overlay" class="overlay"></div>
     <div id="cart-drawer" class="cart-drawer">
         <div class="cart-header">
-            <h3><i class="fa-solid fa-bag-shopping"></i> سبد خرید شما</h3>
-            <button class="close-btn" onclick="toggleCart()">&times;</button>
+            <h3><i class="fas fa-shopping-basket"></i> سبد خرید شما</h3>
+            <button id="close-cart" class="btn-close">&times;</button>
         </div>
-        <div class="cart-body" id="cart-items">
-            <!-- آیتم‌های سبد خرید -->
+        <div id="cart-items" class="cart-items-container">
+            <!-- Cart items will be injected here -->
+            <p class="empty-msg">سبد خرید شما خالی است.</p>
         </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>جمع کل:</span>
-                <span id="total-amount">0 تومان</span>
+                <span id="total-price">0</span> <small>تومان</small>
             </div>
-            <button class="btn-checkout" onclick="checkoutWhatsApp()">
-                <i class="fa-brands fa-whatsapp"></i> نهایی کردن سفارش
-            </button>
+            <button id="checkout-btn" class="btn-checkout">تایید و ارسال سفارش</button>
         </div>
     </div>
 
-    <!-- لایه تیره پشت سبد خرید -->
-    <div id="overlay" class="overlay" onclick="toggleCart()"></div>
-
-    <!-- فوتر -->
-    <footer>
-        <p>© ۲۰۲۶ پرتغال شاپ | طراحی شده برای استاد مهدی</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>جميع حقوق برای &copy; پرتغال شاپ محفوظ است.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Link to our custom JS -->
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
-
