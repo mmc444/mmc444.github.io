@@ -1,27 +1,204 @@
-/* پالت رنگی جدید برای پرتغال شاپ */
-header {
-    background: linear-gradient(135deg, #ff8c00, #ffae42); /* گرادینت نارنجی جذاب */
-    color: white;
-    padding: 30px 0;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+/* 
+   Portugal Shop - Custom Styles
+   Theme: Dark & Orange Modern 
+*/
+
+/* تنظیمات کلی برای حذف فاصله‌های اضافی و انتخاب فونت */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-button {
-    background: #ff8c00; /* نارنجی برند */
-    color: white;
-    border: none;
-    padding: 10px 20px;
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #121212; /* مشکی بسیار تیره */
+    color: #e0e0e0; /* خاکستری روشن برای متن‌ها */
+    line-height: 1.6;
+    direction: rtl;
+}
+
+/* نوار ناوبری (Navbar) */
+.navbar {
+    background-color: #1e1e1e;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #ff8c00; /* خط نارنجی زیر نوار */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff8c00;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* دکمه‌ها */
+.btn-primary {
+    background-color: #ff8c00;
+    color: #fff;
+    padding: 10px 25px;
     border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e67e00;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 8px 15px;
+    border-radius: 6px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-button:hover {
-    background: #e67e00;
-    transform: scale(1.05);
+.btn-secondary:hover {
+    background-color: rgba(255, 140, 0, 0.1);
 }
 
-.cart-container {
-    border: 2px solid #ffae42;
+.btn-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #ff4500;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* بخش اصلی (Hero Section) */
+.hero {
+    height: 400px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* شبکه محصولات (Product Grid) */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #ff8c00;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* استایل کارت محصول (بعداً با JS پر می‌شود) */
+.product-card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.product-card:hover {
+    border-color: #ff8c00;
+    transform: scale(1.03);
+}
+
+/* سبد خرید (Cart Drawer) */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -350px; /* مخفی بودن */
+    width: 350px;
+    height: 100%;
+    background-color: #1e1e1e;
+    z-index: 1001;
+    transition: 0.4s ease-in-out;
+    padding: 25px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+/* فوتر (Footer) */
+.footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #181818;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+    font-size: 0.9rem;
+    color: #777;
 }
