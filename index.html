@@ -2,18 +2,27 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>فروشگاه استاد </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پرتغال شاپ | فروشگاه هنری</title> <!-- اسم جدید -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>فروشگاه هنری ا
-      🎨</h1></header>
-    <div class="product-grid" id="products"></div>
-    <div class="cart">
-        <h3>سبد خرید</h3>
-        <ul id="cart-items"></ul>
-        <button onclick="checkout()">نهایی کردن سفارش در واتس‌اپ</button>
-    </div>
+    <header>
+        <h1>پرتغال شاپ 🍊</h1> <!-- اسم جدید و اضافه کردن ایموجی مرتبط -->
+        <p>جایی که هنر با خلاقیت ملاقات می‌کند</p>
+    </header>
+
+    <main>
+        <section class="product-grid" id="products"></section>
+
+        <section class="cart-container">
+            <h3>🛒 سبد خرید شما</h3>
+            <ul id="cart-items"></ul>
+            <div id="cart-total">جمع کل: 0 تومان</div>
+            <button class="checkout-btn" onclick="checkout()">نهایی کردن سفارش در واتس‌اپ</button>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
